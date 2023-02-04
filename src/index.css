@@ -13,6 +13,7 @@ a {
 ::-webkit-scrollbar {
   width: 0px;
   height: 5px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {

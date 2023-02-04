@@ -1,9 +1,29 @@
-import React from 'react'
+import { Typography, Stack } from "@mui/material";
+import { Box } from "@mui/system";
+import React from "react";
+import Sidebar from "./Sidebar";
 
 const Feed = () => {
   return (
-    <div>Feed brooooo</div>
-  )
-}
+    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+      <Box
+        sx={{
+          height: { sx: "auto", md: "92vh" },
+          borderRight: "1px solid #3d3d3d",
+          px: { sx: 0, md: 2 },
+        }}
+      >
+        <Sidebar />
+        <Typography
+          className="copyright"
+          variant="body2"
+          sx={{ mt: 1.5, color: "#fff" }}
+        >
+          Copyright 2023 Video Center
+        </Typography>
+      </Box>
+    </Stack>
+  );
+};
 
-export default Feed
+export default Feed;
