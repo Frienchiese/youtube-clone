@@ -17,13 +17,12 @@ const VideoCard = ({
     snippet,
   },
 }) => {
-  console.log(snippet, videoId);
   return (
     <Card
       sx={{
         width: { md: "320px", xs: "100%" },
         boxShadow: "none",
-        borderRadius: "none",
+        borderRadius: 0,
       }}
     >
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
