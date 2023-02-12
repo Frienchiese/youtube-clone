@@ -5,14 +5,7 @@ import { CheckCircle } from "@mui/icons-material";
 
 import { demoProfilePicture, demoChannelTitle } from "../utils/constants";
 
-const ChannelCard = ({
-  channelDetail: {
-    id: { channelId },
-    snippet,
-  },
-  channelDetail,
-}) => {
-  console.log(channelId, snippet);
+const ChannelCard = ({ channelDetail, marginTop }) => {
   return (
     <Box
       sx={{
@@ -24,9 +17,10 @@ const ChannelCard = ({
         width: { xs: "356px", md: "320px" },
         height: "326px",
         margin: "auto",
+        marginTop,
       }}
     >
-      <Link to={`/channel/${channelId}`}>
+      <Link to={`/channel/${channelDetail?.id?.channelId}`}>
         <CardContent
           sx={{
             display: "flex",
@@ -37,8 +31,11 @@ const ChannelCard = ({
           }}
         >
           <CardMedia
-            image={snippet?.thumbnails?.high?.url || demoProfilePicture}
-            alt={snippet?.title}
+            image={
+              channelDetail?.snippet?.thumbnails?.high?.url ||
+              demoProfilePicture
+            }
+            alt={channelDetail?.snippet?.title}
             sx={{
               width: "180px",
               height: "180px",
@@ -48,7 +45,7 @@ const ChannelCard = ({
             }}
           />
           <Typography variant="h6">
-            {snippet?.channelTitle || demoChannelTitle}
+            {channelDetail?.snippet?.channelTitle || demoChannelTitle}
             <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }} />
           </Typography>
           {channelDetail?.statistics?.subscriberCount && (
